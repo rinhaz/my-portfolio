@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rinad Haz Photography</title>
+    <style>
+        /* ==========================================================================
+           1. GLOBAL STYLES & SUMMER VIBE VARIABLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Playfair Display', 'Didot', 'Georgia', serif;
+            background-color: #FFFDF0; /* Warm Butter Yellow */
+            color: #2B271F; /* Soft Warm Charcoal */
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fixed Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 253, 240, 0.95);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(43, 39, 31, 0.05);
+        }
+
+        .nav-group {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-group a, .nav-group button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            color: #2B271F;
+            font-style: italic;
+            font-size: 1.1rem;
+            font-family: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-group a:hover, .nav-group button:hover {
+            opacity: 0.6;
+        }
+
+        .brand-logo {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .brand-logo h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .brand-logo p {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 5px;
+            color: #6E6557;
+        }
+
+        /* ==========================================================================
+           2. MAIN LANDING VIEW (HOME)
+           ========================================================================== */
+        .main-view-container {
+            margin-top: 180px;
+            display: block;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            width: 100vw;
+            padding: 0 5%;
+        }
+
+        .gallery-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 30px;
+            scrollbar-width: none;
+        }
+
+        .gallery-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: calc(33.333% - 14px);
+            height: 70vh;
+            min-width: 300px;
+            overflow: hidden;
+            background-color: #F4EFCF;
+            box-shadow: 0 10px 20px rgba(43, 39, 31, 0.05);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 253, 240, 0.9);
+            color: #2B271F;
+            border: 1px solid rgba(43, 39, 31, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(43, 39, 31, 0.08);
+            z-index: 10;
+        }
+
+        .scroll-left { left: 2%; }
+        .scroll-right { right: 2%; }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            width: 100vw;
+            min-height: 85vh;
+            background-color: #2B271F;
+            color: #FFFDF0;
+            margin-top: 80px;
+        }
+
+        .contact-left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 8%;
+        }
+
+        .contact-content-wrapper {
+            max-width: 500px;
+        }
+
+        .contact-title {
+            font-size: 4rem;
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .contact-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #E6DFCD;
+        }
+
+        .contact-right {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            min-height: 550px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .info-card {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            background-color: #FFFDF0;
+            color: #2B271F;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #EBE7D5;
+            padding-bottom: 10px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            display: flex;
+        }
+
+        .info-label {
+            font-weight: bold;
+            width: 90px;
+            color: #6E6557;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-item a {
+            color: #2B271F;
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+
+        /* ==========================================================================
+           3. DEDICATED GALLERY PAGE VIEW (SUMMER EDITION)
+           ========================================================================== */
+        .gallery-view-container {
+            display: none;
+            margin-top: 160px;
+            padding: 0 5% 80px 5%;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .summer-title-wrapper {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .summer-title {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #2B271F;
+        }
+
+        .summer-subtitle {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #6E6557;
+            margin-top: 10px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-photo {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            box-shadow: 0 8px 25px rgba(43, 39, 31, 0.08);
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+
+        .grid-photo:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ==========================================================================
+           4. DEDICATED ABOUT PAGE VIEW (ICH BIN...)
+           ========================================================================= */
+        .about-view-container {
+            display: none;
+            width: 100vw;
+            min-height: 100vh;
+            background-color: #2B271F;
+            color: #FFFDF0;
+            margin-top: 120px;
+            padding: 80px 8%;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .about-grid-layout {
+            display: flex;
+            gap: 8%;
+            align-items: flex-start;
+        }
+
+        .about-left-photo-column {
+            flex: 0 0 42%;
+            position: relative;
+        }
+
+        .about-hero-img {
+            width: 100%;
+            height: 680px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+
+        .about-signature-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 400;
+            line-height: 0.9;
+            margin-top: 30px;
+            letter-spacing: -1px;
+        }
+
+        .about-right-text-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .about-greeting {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: #FFFDF0;
+            border-bottom: 1px solid rgba(255, 253, 240, 0.15);
+            padding-bottom: 20px;
+        }
+
+        .about-story-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 8px;
+            color: #FFFDF0;
+            opacity: 0.9;
+        }
+
+        .about-story-block p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #E6DFCD;
+        }
+
+        /* ==========================================================================
+           5. LIGHTBOX OVERLAY POPUP (IMAGE ZOOM MODAL)
+           ========================================================================= */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(43, 39, 31, 0.98);
+            z-index: 5000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #FFFDF0;
+            font-size: 2.5rem;
+            font-weight: 300;
+            cursor: pointer;
+            user-select: none;
+            transition: opacity 0.2s;
+        }
+
+        .lightbox-close:hover {
+            opacity: 0.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            header { flex-direction: column; gap: 20px; position: relative; }
+            .main-view-container, .gallery-view-container, .about-view-container { margin-top: 20px; }
+            .gallery-item { width: calc(50% - 10px); height: 60vh; }
+            .contact-section { flex-direction: column; }
+            .contact-left, .contact-right { width: 100%; flex: none; }
+            .contact-right { height: 65vh; }
+            .photo-grid { grid-template-columns: 1fr; }
+            .grid-photo { height: 450px; }
+            
+            .about-grid-layout { flex-direction: column; gap: 40px; }
+            .about-left-photo-column { width: 100%; }
+            .about-hero-img { height: 450px; }
+            .lightbox-close { top: 15px; right: 20px; font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-group">
+            <button id="nav-gallery-btn">Gallery</button>
+        </div>
+        
+        <div class="brand-logo" id="nav-logo-btn">
+            <h1>Rinad Haz</h1>
+            <p>Photography</p>
+        </div>
+        
+        <div class="nav-group">
+            <button id="nav-about-btn">About</button>
+            <a href="#kontakt" id="nav-kontakt-btn">Contact</a>
+        </div>
+    </header>
+
+    <div id="main-view" class="main-view-container">
+        <div class="gallery-wrapper">
+            <button class="scroll-btn scroll-left" id="slideLeft">&#10216;</button>
+            <button class="scroll-btn scroll-right" id="slideRight">&#10217;</button>
+
+            <div class="gallery-container" id="gallery">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800" alt="Summer"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&q=80&w=800" alt="Summer"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Summer"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Summer"></div>
+            </div>
+        </div>
+
+        <section id="kontakt" class="contact-section">
+            <div class="contact-left">
+                <div class="contact-content-wrapper">
+                    <h2 class="contact-title">LET'S<br>CONNECT</h2>
+                    <p class="contact-text">Looking for effortless, sun-kissed moments that tell your completely unique story? Let’s bring your favorite memories to light together.</p>
+                </div>
+            </div>
+            <div class="contact-right">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1000" alt="Profile" class="profile-img">
+                <div class="info-card">
+                    <h3>Contact Details</h3>
+                    <div class="info-item"><span class="info-label">Mail:</span><a href="mailto:rinadhazaea@gmail.com">rinadhazaea@gmail.com</a></div>
+                    <div class="info-item"><span class="info-label">Phone:</span><a href="tel:+463249648">+46 76 324 96 48</a></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="gallery-view" class="gallery-view-container">
+        <div class="summer-title-wrapper">
+            <h2 class="summer-title">Summer Edition</h2>
+            <p class="summer-subtitle">Sun-drenched stories captured forever</p>
+        </div>
+        <div class="photo-grid">
+            <img class="grid-photo" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000" alt="Summer">
+            <img class="grid-photo" src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=1000" alt="Summer">
+            <img class="grid-photo" src="https://images.unsplash.com/photo-1473116763269-255448993f66?auto=format&fit=crop&q=80&w=1000" alt="Summer">
+            <img class="grid-photo" src="https://images.unsplash.com/photo-1506477331477-33d5d8b3dc85?auto=format&fit=crop&q=80&w=1000" alt="Summer">
+        </div>
+    </div>
+
+    <div id="about-view" class="about-view-container">
+        <div class="about-grid-layout">
+            <div class="about-left-photo-column">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1000" alt="About" class="about-hero-img">
+                <div class="about-signature-text">I<br>AM</div>
+            </div>
+
+            <div class="about-right-text-column">
+                <h2 class="about-greeting">Hey, my name is Coco.</h2>
+                
+                <div class="about-story-block">
+                    <h3>Things to know about me —</h3>
+                    <p>My journey into creative design started early—I completely immersed myself into the world of visuals and design at just 15 years old. Developing an eye for composition early on laid the foundation for everything I create today.</p>
+                </div>
+
+                <div class="about-story-block">
+                    <h3>Behind the Lens & Light</h3>
+                    <p>Photography is more than just clicking a shutter button; it's about freezing the authentic, natural mood of a space. I love working with clean lines, daylight aesthetics, and capturing genuine emotions.</p>
+                </div>
+
+                <div class="about-story-block">
+                    <h3>The Creative Process</h3>
+                    <p>I bring out the best in every project through high-end image post-processing and specialized retouching. Keeping control of the editing pipeline guarantees that unique, sun-kissed signature style.</p>
+                </div>
+
+                <div class="about-story-block">
+                    <h3>Motion & Adobe Ecosystem</h3>
+                    <p>Beyond stills, I work heavily within video editing and dynamic motion graphics. I'm highly fluent in Adobe tools, using After Effects to craft smooth transitions, clean cuts, and premium visual elements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox-modal" class="lightbox-modal">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Zoomed Display">
+    </div>
+
+    <script>
+        const mainView = document.getElementById('main-view');
+        const galleryView = document.getElementById('gallery-view');
+        const aboutView = document.getElementById('about-view');
+        
+        const navGalleryBtn = document.getElementById('nav-gallery-btn');
+        const navLogoBtn = document.getElementById('nav-logo-btn');
+        const navAboutBtn = document.getElementById('nav-about-btn');
+        const navKontaktBtn = document.getElementById('nav-kontakt-btn');
+
+        function showView(targetView) {
+            mainView.style.display = 'none';
+            galleryView.style.display = 'none';
+            aboutView.style.display = 'none';
+            
+            targetView.style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        navGalleryBtn.addEventListener('click', () => showView(galleryView));
+        navLogoBtn.addEventListener('click', () => showView(mainView));
+        navAboutBtn.addEventListener('click', () => showView(aboutView));
+
+        navKontaktBtn.addEventListener('click', () => {
+            if(mainView.style.display === 'none') {
+                mainView.style.display = 'block';
+                galleryView.style.display = 'none';
+                aboutView.style.display = 'none';
+            }
+        });
+
+        // Horizontal slider control configurations for home screen view
+        const gallery = document.getElementById('gallery');
+        const leftBtn = document.getElementById('slideLeft');
+        const rightBtn = document.getElementById('slideRight');
+        const getScrollAmount = () => gallery.clientWidth * 0.75;
+
+        rightBtn.addEventListener('click', () => {
+            gallery.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+        leftBtn.addEventListener('click', () => {
+            gallery.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+
+        gallery.addEventListener('wheel', (evt) => {
+            if (evt.deltaY !== 0) {
+                evt.preventDefault();
+                gallery.scrollLeft += evt.deltaY * 2;
+            }
+        }, { passive: false });
+
+        // ==========================================
+        // LIGHTBOX INTERACTION LOGIC ENGINE
+        // ==========================================
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        document.addEventListener('click', (e) => {
+            // Check specifically for clicked image tags inside photo target blocks
+            if (e.target.tagName === 'IMG' && (e.target.closest('.gallery-item') || e.target.closest('.photo-grid') || e.target.closest('.about-left-photo-column'))) {
+                lightboxImg.src = e.target.src;
+                lightboxModal.classList.add('active');
+            }
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightboxModal.classList.remove('active');
+        });
+
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                lightboxModal.classList.remove('active');
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+                lightboxModal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
