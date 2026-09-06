@@ -5,14 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Hala Haz Photography</title>
 
     <style>
-
-        /* ==========================================================================
-           1. GLOBAL STYLES & SUMMER VIBE VARIABLES
-           ========================================================================== */
+        /* =========================================================
+           1. GLOBAL STYLES
+           ========================================================= */
 
         * {
             margin: 0;
@@ -33,25 +31,20 @@
         }
 
 
-        /* ==========================================================================
-           NAVIGATION HEADER
-           ========================================================================== */
+        /* =========================================================
+           2. NAVIGATION HEADER
+           ========================================================= */
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             padding: 30px 5%;
-
             position: fixed;
             top: 0;
             width: 100%;
-
             background-color: rgba(255, 253, 240, 0.95);
-
             z-index: 1000;
-
             border-bottom: 1px solid rgba(43, 39, 31, 0.05);
         }
 
@@ -64,18 +57,12 @@
         .nav-group button {
             background: none;
             border: none;
-
             cursor: pointer;
-
             text-decoration: none;
-
             color: #2B271F;
-
             font-style: italic;
             font-size: 1.1rem;
-
             font-family: inherit;
-
             transition: opacity 0.3s ease;
         }
 
@@ -92,34 +79,29 @@
         .brand-logo h1 {
             font-size: 2.2rem;
             font-weight: 400;
-
             letter-spacing: 2px;
             line-height: 1;
-
             text-transform: uppercase;
         }
 
         .brand-logo p {
             font-family: 'Arial', sans-serif;
-
             font-size: 0.65rem;
             letter-spacing: 4px;
-
             text-transform: uppercase;
-
             margin-top: 5px;
-
             color: #6E6557;
         }
 
 
-        /* ==========================================================================
-           2. MAIN HOME VIEW
-           ========================================================================== */
+        /* =========================================================
+           3. MAIN HOME VIEW
+           Hidden initially because Wedding Collection opens first
+           ========================================================= */
 
         .main-view-container {
             margin-top: 180px;
-            display: block;
+            display: none;
         }
 
 
@@ -127,23 +109,16 @@
 
         .gallery-wrapper {
             position: relative;
-
             width: 100vw;
-
             padding: 0 5%;
         }
 
         .gallery-container {
             display: flex;
-
             gap: 20px;
-
             overflow-x: auto;
-
             scroll-behavior: smooth;
-
             padding-bottom: 30px;
-
             scrollbar-width: none;
         }
 
@@ -153,28 +128,19 @@
 
         .gallery-item {
             flex: 0 0 auto;
-
             width: calc(33.333% - 14px);
-
             height: 70vh;
-
             min-width: 300px;
-
             overflow: hidden;
-
             background-color: #F4EFCF;
-
             box-shadow: 0 10px 20px rgba(43, 39, 31, 0.05);
-
             cursor: pointer;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
-
             object-fit: cover;
-
             transition: transform 0.5s ease;
         }
 
@@ -187,33 +153,20 @@
 
         .scroll-btn {
             position: absolute;
-
             top: 50%;
-
             transform: translateY(-50%);
-
             background: rgba(255, 253, 240, 0.9);
-
             color: #2B271F;
-
             border: 1px solid rgba(43, 39, 31, 0.1);
-
             width: 50px;
             height: 50px;
-
             border-radius: 50%;
-
             font-size: 1.5rem;
-
             cursor: pointer;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             box-shadow: 0 4px 10px rgba(43, 39, 31, 0.08);
-
             z-index: 10;
         }
 
@@ -226,32 +179,24 @@
         }
 
 
-        /* ==========================================================================
-           CONTACT SECTION
-           ========================================================================== */
+        /* =========================================================
+           4. CONTACT SECTION
+           ========================================================= */
 
         .contact-section {
             display: flex;
-
             width: 100vw;
-
             min-height: 85vh;
-
             background-color: #2B271F;
-
             color: #FFFDF0;
-
             margin-top: 80px;
         }
 
         .contact-left {
             flex: 1;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             padding: 60px 8%;
         }
 
@@ -261,120 +206,85 @@
 
         .contact-title {
             font-size: 4rem;
-
             font-weight: 400;
-
             line-height: 1.1;
-
             letter-spacing: 2px;
-
             margin-bottom: 40px;
-
             text-transform: uppercase;
         }
 
         .contact-text {
             font-style: italic;
-
             font-size: 1.1rem;
-
             line-height: 1.6;
-
             color: #E6DFCD;
         }
 
         .contact-right {
             flex: 1;
-
             position: relative;
-
             overflow: hidden;
-
             min-height: 550px;
         }
 
         .profile-img {
             width: 100%;
             height: 100%;
-
             object-fit: cover;
-
             display: block;
         }
 
         .info-card {
             position: absolute;
-
             bottom: 40px;
-
             left: 40px;
             right: 40px;
-
             background-color: #FFFDF0;
-
             color: #2B271F;
-
             padding: 35px;
-
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
         }
 
         .info-card h3 {
             font-size: 1.4rem;
-
             font-weight: 400;
-
             margin-bottom: 20px;
-
             text-transform: uppercase;
-
             border-bottom: 1px solid #EBE7D5;
-
             padding-bottom: 10px;
         }
 
         .info-item {
             margin-bottom: 15px;
-
             font-size: 1rem;
-
             display: flex;
         }
 
         .info-label {
             font-weight: bold;
-
             width: 90px;
-
             color: #6E6557;
-
             font-size: 0.85rem;
-
             text-transform: uppercase;
-
             letter-spacing: 1px;
         }
 
         .info-item a {
             color: #2B271F;
-
             text-decoration: none;
-
             font-size: 1.05rem;
         }
 
 
-        /* ==========================================================================
-           3. GALLERY PAGE
-           ========================================================================== */
+        /* =========================================================
+           5. GALLERY PAGE
+           Visible initially because Wedding Collection opens first
+           ========================================================= */
 
         .gallery-view-container {
-            display: none;
-
+            display: block;
             margin-top: 160px;
-
             padding: 0 5% 80px 5%;
-
             animation: fadeIn 0.4s ease-in-out;
         }
 
@@ -383,29 +293,21 @@
 
         .collection-selection {
             text-align: center;
-
             margin-bottom: 70px;
         }
 
         .gallery-main-title {
             font-size: 3.5rem;
-
             font-weight: 400;
-
             letter-spacing: 4px;
-
             text-transform: uppercase;
-
             color: #2B271F;
-
             margin-bottom: 15px;
         }
 
         .gallery-main-subtitle {
             font-style: italic;
-
             font-size: 1.2rem;
-
             color: #6E6557;
         }
 
@@ -414,41 +316,27 @@
 
         .collection-buttons {
             display: flex;
-
             justify-content: center;
-
             gap: 25px;
-
             margin-top: 50px;
-
             flex-wrap: wrap;
         }
 
         .collection-btn {
             background: transparent;
-
             border: 1px solid #2B271F;
-
             color: #2B271F;
-
             padding: 18px 45px;
-
             font-family: inherit;
-
             font-size: 1rem;
-
             letter-spacing: 2px;
-
             text-transform: uppercase;
-
             cursor: pointer;
-
             transition: all 0.3s ease;
         }
 
         .collection-btn:hover {
             background-color: #2B271F;
-
             color: #FFFDF0;
         }
 
@@ -461,7 +349,6 @@
 
         .collection-view.active {
             display: block;
-
             animation: fadeIn 0.4s ease-in-out;
         }
 
@@ -470,29 +357,21 @@
 
         .collection-title-wrapper {
             text-align: center;
-
             margin-bottom: 60px;
         }
 
         .collection-title {
             font-size: 3.5rem;
-
             font-weight: 400;
-
             letter-spacing: 4px;
-
             text-transform: uppercase;
-
             color: #2B271F;
         }
 
         .collection-subtitle {
             font-style: italic;
-
             font-size: 1.2rem;
-
             color: #6E6557;
-
             margin-top: 10px;
         }
 
@@ -501,23 +380,14 @@
 
         .back-to-collections {
             display: block;
-
             margin: 0 auto 50px auto;
-
             background: none;
-
             border: none;
-
             color: #6E6557;
-
             font-family: inherit;
-
             font-size: 0.9rem;
-
             letter-spacing: 1px;
-
             cursor: pointer;
-
             transition: opacity 0.3s ease;
         }
 
@@ -530,25 +400,16 @@
 
         .photo-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(auto-fill, minmax(350px, 1fr));
-
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 25px;
         }
 
         .grid-photo {
             width: 100%;
-
             height: 500px;
-
             object-fit: cover;
-
-            box-shadow:
-                0 8px 25px rgba(43, 39, 31, 0.08);
-
+            box-shadow: 0 8px 25px rgba(43, 39, 31, 0.08);
             transition: transform 0.4s ease;
-
             cursor: pointer;
         }
 
@@ -557,167 +418,114 @@
         }
 
 
-        /* ==========================================================================
-           4. ABOUT PAGE
-           ========================================================================== */
+        /* =========================================================
+           6. ABOUT PAGE
+           ========================================================= */
 
         .about-view-container {
             display: none;
-
             width: 100vw;
-
             min-height: 100vh;
-
             background-color: #2B271F;
-
             color: #FFFDF0;
-
             margin-top: 120px;
-
             padding: 80px 8%;
-
             animation: fadeIn 0.4s ease-in-out;
         }
 
         .about-grid-layout {
             display: flex;
-
             gap: 8%;
-
             align-items: flex-start;
         }
 
         .about-left-photo-column {
             flex: 0 0 42%;
-
             position: relative;
         }
 
         .about-hero-img {
             width: 100%;
-
             height: 680px;
-
             object-fit: cover;
-
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-
             cursor: pointer;
         }
 
         .about-signature-text {
             font-family: 'Playfair Display', serif;
-
             font-size: 5rem;
-
             font-weight: 400;
-
             line-height: 0.9;
-
             margin-top: 30px;
-
             letter-spacing: -1px;
         }
 
         .about-right-text-column {
             flex: 1;
-
             display: flex;
-
             flex-direction: column;
-
             gap: 40px;
         }
 
         .about-greeting {
             font-size: 2.2rem;
-
             font-weight: 400;
-
             margin-bottom: 10px;
-
             color: #FFFDF0;
-
-            border-bottom:
-                1px solid rgba(255, 253, 240, 0.15);
-
+            border-bottom: 1px solid rgba(255, 253, 240, 0.15);
             padding-bottom: 20px;
         }
 
         .about-story-block h3 {
             font-family: 'Playfair Display', serif;
-
             font-size: 1.4rem;
-
             font-weight: 400;
-
             font-style: italic;
-
             margin-bottom: 8px;
-
             color: #FFFDF0;
-
             opacity: 0.9;
         }
 
         .about-story-block p {
             font-family: 'Playfair Display', serif;
-
             font-size: 1.05rem;
-
             line-height: 1.6;
-
             color: #E6DFCD;
         }
 
 
-        /* ==========================================================================
-           5. LIGHTBOX
-           ========================================================================== */
+        /* =========================================================
+           7. LIGHTBOX
+           ========================================================= */
 
         .lightbox-modal {
             display: none;
-
             position: fixed;
-
             top: 0;
             left: 0;
-
             width: 100vw;
             height: 100vh;
-
             background-color: rgba(43, 39, 31, 0.98);
-
             z-index: 5000;
-
             align-items: center;
             justify-content: center;
-
             opacity: 0;
-
             transition: opacity 0.3s ease-in-out;
         }
 
         .lightbox-modal.active {
             display: flex;
-
             opacity: 1;
         }
 
         .lightbox-content {
             max-width: 90vw;
-
             max-height: 85vh;
-
             object-fit: contain;
-
-            box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.5);
-
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             transform: scale(0.95);
-
-            transition:
-                transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out;
         }
 
         .lightbox-modal.active .lightbox-content {
@@ -726,21 +534,13 @@
 
         .lightbox-close {
             position: absolute;
-
             top: 30px;
-
             right: 40px;
-
             color: #FFFDF0;
-
             font-size: 2.5rem;
-
             font-weight: 300;
-
             cursor: pointer;
-
             user-select: none;
-
             transition: opacity 0.2s;
         }
 
@@ -749,12 +549,11 @@
         }
 
 
-        /* ==========================================================================
-           ANIMATIONS
-           ========================================================================== */
+        /* =========================================================
+           8. ANIMATIONS
+           ========================================================= */
 
         @keyframes fadeIn {
-
             from {
                 opacity: 0;
             }
@@ -762,21 +561,18 @@
             to {
                 opacity: 1;
             }
-
         }
 
 
-        /* ==========================================================================
-           RESPONSIVE DESIGN
-           ========================================================================== */
+        /* =========================================================
+           9. RESPONSIVE DESIGN
+           ========================================================= */
 
         @media (max-width: 992px) {
 
             header {
                 flex-direction: column;
-
                 gap: 20px;
-
                 position: relative;
             }
 
@@ -788,7 +584,6 @@
 
             .gallery-item {
                 width: calc(50% - 10px);
-
                 height: 60vh;
             }
 
@@ -799,7 +594,6 @@
             .contact-left,
             .contact-right {
                 width: 100%;
-
                 flex: none;
             }
 
@@ -817,7 +611,6 @@
 
             .about-grid-layout {
                 flex-direction: column;
-
                 gap: 40px;
             }
 
@@ -831,12 +624,9 @@
 
             .lightbox-close {
                 top: 15px;
-
                 right: 20px;
-
                 font-size: 2rem;
             }
-
         }
 
 
@@ -866,7 +656,6 @@
 
             .collection-btn {
                 width: 100%;
-
                 padding: 16px 20px;
             }
 
@@ -881,31 +670,24 @@
             .contact-title {
                 font-size: 3rem;
             }
-
         }
-
     </style>
-
 </head>
 
 
 <body>
 
 
-    <!-- ==========================================================================
+    <!-- =========================================================
          HEADER
-         ========================================================================== -->
+         ========================================================= -->
 
     <header>
 
         <div class="brand-logo" id="nav-logo-btn">
-
             <h1>Hala Haz</h1>
-
             <p>Photography</p>
-
         </div>
-
 
         <div class="nav-group">
 
@@ -926,13 +708,11 @@
     </header>
 
 
-
-    <!-- ==========================================================================
+    <!-- =========================================================
          MAIN HOME VIEW
-         ========================================================================== -->
+         ========================================================= -->
 
     <div id="main-view" class="main-view-container">
-
 
         <!-- HOME IMAGE SLIDER -->
 
@@ -949,50 +729,34 @@
                 class="gallery-container"
                 id="gallery">
 
-                <!-- You can add your homepage images here -->
-
                 <div class="gallery-item">
-
                     <img
                         src="picback.png"
                         alt="Photography">
-
                 </div>
 
-
                 <div class="gallery-item">
-
                     <img
                         src="rawan.png"
                         alt="Photography">
-
                 </div>
 
-
                 <div class="gallery-item">
-
                     <img
                         src="bur.png"
                         alt="Photography">
-
                 </div>
 
-
                 <div class="gallery-item">
-
                     <img
                         src="pic4.png"
                         alt="Photography">
-
                 </div>
 
-
                 <div class="gallery-item">
-
                     <img
                         src="93.png"
                         alt="Photography">
-
                 </div>
 
             </div>
@@ -1007,13 +771,11 @@
         </div>
 
 
-
         <!-- CONTACT SECTION -->
 
         <section
             id="kontakt"
             class="contact-section">
-
 
             <div class="contact-left">
 
@@ -1024,21 +786,17 @@
                         CONNECT
                     </h2>
 
-
                     <p class="contact-text">
-
                         Looking for effortless,
                         sun-kissed moments that tell
                         your completely unique story?
                         Let’s bring your favorite
                         memories to light together.
-
                     </p>
 
                 </div>
 
             </div>
-
 
 
             <div class="contact-right">
@@ -1048,13 +806,11 @@
                     alt="Profile"
                     class="profile-img">
 
-
                 <div class="info-card">
 
                     <h3>
                         Contact Details
                     </h3>
-
 
                     <div class="info-item">
 
@@ -1090,216 +846,171 @@
     </div>
 
 
-
-    <!-- ==========================================================================
+    <!-- =========================================================
          GALLERY VIEW
-         ========================================================================== -->
+         ========================================================= -->
 
     <div
         id="gallery-view"
         class="gallery-view-container">
 
 
-        <!-- ================================================================
-             COLLECTION SELECTION
-             ================================================================ -->
+        <!-- COLLECTION SELECTION
+             Hidden initially because Wedding opens first -->
 
         <div
             id="collection-selection"
-            class="collection-selection">
-
+            class="collection-selection"
+            style="display: none;">
 
             <h2 class="gallery-main-title">
                 Gallery
             </h2>
 
-
             <p class="gallery-main-subtitle">
                 Stories captured through my lens
             </p>
 
-
             <div class="collection-buttons">
-
 
                 <button
                     class="collection-btn"
                     id="summer-btn">
-
                     Summer Collection
-
                 </button>
-
 
                 <button
                     class="collection-btn"
                     id="wedding-btn">
-
                     Wedding Collection
-
                 </button>
-
 
             </div>
 
         </div>
 
 
-
-        <!-- ================================================================
+        <!-- =====================================================
              SUMMER COLLECTION
-             ================================================================ -->
+             ===================================================== -->
 
         <div
             id="summer-collection"
             class="collection-view">
 
-
             <button
                 class="back-to-collections">
-
                 ← Back to Collections
-
             </button>
 
-
             <div class="collection-title-wrapper">
-
 
                 <h2 class="collection-title">
                     Summer Collection
                 </h2>
 
-
                 <p class="collection-subtitle">
                     Sun-drenched stories captured forever
                 </p>
 
-
             </div>
 
 
-
             <div class="photo-grid">
-
 
                 <img
                     class="grid-photo"
                     src="picback.png"
                     alt="Summer Collection">
 
-
                 <img
                     class="grid-photo"
                     src="rawan.png"
                     alt="Summer Collection">
-
 
                 <img
                     class="grid-photo"
                     src="bur.png"
                     alt="Summer Collection">
 
-
                 <img
                     class="grid-photo"
                     src="pic4.png"
                     alt="Summer Collection">
-
 
                 <img
                     class="grid-photo"
                     src="93.png"
                     alt="Summer Collection">
 
-
             </div>
 
         </div>
 
 
-
-        <!-- ================================================================
+        <!-- =====================================================
              WEDDING COLLECTION
-             ================================================================ -->
+             ACTIVE FROM THE START
+             ===================================================== -->
 
         <div
             id="wedding-collection"
-            class="collection-view">
-
+            class="collection-view active">
 
             <button
                 class="back-to-collections">
-
                 ← Back to Collections
-
             </button>
 
-
             <div class="collection-title-wrapper">
-
 
                 <h2 class="collection-title">
                     Wedding Collection
                 </h2>
 
-
                 <p class="collection-subtitle">
                     Timeless moments, beautifully remembered
                 </p>
 
-
             </div>
 
 
-
             <div class="photo-grid">
-
-
-                <!-- CHANGE THESE FILE NAMES
-                     TO YOUR ACTUAL WEDDING PHOTOS -->
-
 
                 <img
                     class="grid-photo"
                     src="Wedding7.png"
                     alt="Wedding Collection">
 
-
                 <img
                     class="grid-photo"
                     src="Wedding6.png"
                     alt="Wedding Collection">
-
 
                 <img
                     class="grid-photo"
                     src="Wedding5.png"
                     alt="Wedding Collection">
 
-
                 <img
                     class="grid-photo"
                     src="Wedding4.png"
                     alt="Wedding Collection">
-
 
                 <img
                     class="grid-photo"
                     src="wedd3.png"
                     alt="Wedding Collection">
 
-
                 <img
                     class="grid-photo"
                     src="Wedding2.jpg"
                     alt="Wedding Collection">
-                
+
                 <img
                     class="grid-photo"
                     src="wedding1.jpg"
                     alt="Wedding Collection">
-
 
             </div>
 
@@ -1308,48 +1019,36 @@
     </div>
 
 
-
-    <!-- ==========================================================================
+    <!-- =========================================================
          ABOUT VIEW
-         ========================================================================== -->
+         ========================================================= -->
 
     <div
         id="about-view"
         class="about-view-container">
 
-
         <div class="about-grid-layout">
 
-
             <div class="about-left-photo-column">
-
 
                 <img
                     src=""
                     alt="About"
                     class="about-hero-img">
 
-
                 <div class="about-signature-text">
-
                     I<br>
                     AM
-
                 </div>
 
             </div>
 
 
-
             <div class="about-right-text-column">
 
-
                 <h2 class="about-greeting">
-
                     Hey, my name is Hala.
-
                 </h2>
-
 
 
                 <div class="about-story-block">
@@ -1359,7 +1058,6 @@
                     </h3>
 
                     <p>
-
                         My journey into creative design
                         started early, I completely immersed
                         myself into the world of visuals and
@@ -1367,11 +1065,9 @@
                         Developing an eye for composition
                         early on laid the foundation for
                         everything I create today.
-
                     </p>
 
                 </div>
-
 
 
                 <div class="about-story-block">
@@ -1381,18 +1077,15 @@
                     </h3>
 
                     <p>
-
                         Photography is more than just
                         clicking a shutter button; it's about
                         freezing the authentic, natural mood
                         of a space. I love working with clean
                         lines, daylight aesthetics, and
                         capturing genuine emotions.
-
                     </p>
 
                 </div>
-
 
 
                 <div class="about-story-block">
@@ -1402,18 +1095,15 @@
                     </h3>
 
                     <p>
-
                         I bring out the best in every project
                         through high-end image post-processing
                         and specialized retouching. Keeping
                         control of the editing pipeline
                         guarantees that unique, sun-kissed
                         signature style.
-
                     </p>
 
                 </div>
-
 
 
                 <div class="about-story-block">
@@ -1423,18 +1113,15 @@
                     </h3>
 
                     <p>
-
                         Beyond stills, I work heavily within
                         video editing and dynamic motion
                         graphics. I'm highly fluent in Adobe
                         tools, using After Effects to craft
                         smooth transitions, clean cuts, and
                         premium visual elements.
-
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -1443,24 +1130,19 @@
     </div>
 
 
-
-    <!-- ==========================================================================
+    <!-- =========================================================
          LIGHTBOX
-         ========================================================================== -->
+         ========================================================= -->
 
     <div
         id="lightbox-modal"
         class="lightbox-modal">
 
-
         <span
             class="lightbox-close"
             id="lightbox-close">
-
             &times;
-
         </span>
-
 
         <img
             class="lightbox-content"
@@ -1471,17 +1153,15 @@
     </div>
 
 
-
-    <!-- ==========================================================================
+    <!-- =========================================================
          JAVASCRIPT
-         ========================================================================== -->
+         ========================================================= -->
 
     <script>
 
-
-        /* ==========================================================================
+        /* =========================================================
            MAIN VIEW REFERENCES
-           ========================================================================== */
+           ========================================================= */
 
         const mainView =
             document.getElementById('main-view');
@@ -1506,35 +1186,36 @@
             document.getElementById('nav-kontakt-btn');
 
 
-
-        /* ==========================================================================
+        /* =========================================================
            VIEW SWITCHING
-           ========================================================================== */
+           ========================================================= */
 
         function showView(targetView) {
 
             mainView.style.display = 'none';
-
             galleryView.style.display = 'none';
-
             aboutView.style.display = 'none';
-
 
             targetView.style.display = 'block';
 
-
             window.scrollTo(0, 0);
-
         }
 
 
-
-        /* NAVIGATION */
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
 
         navGalleryBtn.addEventListener('click', () => {
 
             showView(galleryView);
 
+            collectionSelection.style.display = 'block';
+
+            summerCollection.classList.remove('active');
+            weddingCollection.classList.remove('active');
+
+            window.scrollTo(0, 0);
         });
 
 
@@ -1552,24 +1233,22 @@
         });
 
 
-
-        /* CONTACT BUTTON */
+        /* =========================================================
+           CONTACT BUTTON
+           ========================================================= */
 
         navKontaktBtn.addEventListener('click', () => {
 
             mainView.style.display = 'block';
-
             galleryView.style.display = 'none';
-
             aboutView.style.display = 'none';
 
         });
 
 
-
-        /* ==========================================================================
-           COLLECTION NAVIGATION
-           ========================================================================== */
+        /* =========================================================
+           COLLECTION REFERENCES
+           ========================================================= */
 
         const collectionSelection =
             document.getElementById('collection-selection');
@@ -1592,8 +1271,9 @@
             document.querySelectorAll('.back-to-collections');
 
 
-
-        /* OPEN SUMMER COLLECTION */
+        /* =========================================================
+           OPEN SUMMER COLLECTION
+           ========================================================= */
 
         summerBtn.addEventListener('click', () => {
 
@@ -1608,8 +1288,9 @@
         });
 
 
-
-        /* OPEN WEDDING COLLECTION */
+        /* =========================================================
+           OPEN WEDDING COLLECTION
+           ========================================================= */
 
         weddingBtn.addEventListener('click', () => {
 
@@ -1624,8 +1305,9 @@
         });
 
 
-
-        /* BACK TO COLLECTION SELECTION */
+        /* =========================================================
+           BACK TO COLLECTION SELECTION
+           ========================================================= */
 
         backButtons.forEach(button => {
 
@@ -1635,9 +1317,7 @@
 
                 weddingCollection.classList.remove('active');
 
-
                 collectionSelection.style.display = 'block';
-
 
                 window.scrollTo(0, 0);
 
@@ -1646,10 +1326,9 @@
         });
 
 
-
-        /* ==========================================================================
+        /* =========================================================
            HOME HORIZONTAL SLIDER
-           ========================================================================== */
+           ========================================================= */
 
         const gallery =
             document.getElementById('gallery');
@@ -1668,7 +1347,6 @@
         };
 
 
-
         rightBtn.addEventListener('click', () => {
 
             gallery.scrollBy({
@@ -1680,7 +1358,6 @@
             });
 
         });
-
 
 
         leftBtn.addEventListener('click', () => {
@@ -1696,8 +1373,9 @@
         });
 
 
-
-        /* MOUSE WHEEL HORIZONTAL SCROLL */
+        /* =========================================================
+           MOUSE WHEEL HORIZONTAL SCROLL
+           ========================================================= */
 
         gallery.addEventListener('wheel', (evt) => {
 
@@ -1714,10 +1392,9 @@
         });
 
 
-
-        /* ==========================================================================
+        /* =========================================================
            LIGHTBOX
-           ========================================================================== */
+           ========================================================= */
 
         const lightboxModal =
             document.getElementById('lightbox-modal');
@@ -1729,23 +1406,17 @@
             document.getElementById('lightbox-close');
 
 
-
         /* OPEN IMAGE */
 
         document.addEventListener('click', (e) => {
 
             if (
-
                 e.target.tagName === 'IMG' &&
-
                 (
                     e.target.closest('.gallery-item') ||
-
                     e.target.closest('.photo-grid') ||
-
                     e.target.closest('.about-left-photo-column')
                 )
-
             ) {
 
                 lightboxImg.src = e.target.src;
@@ -1757,7 +1428,6 @@
         });
 
 
-
         /* CLOSE BUTTON */
 
         lightboxClose.addEventListener('click', () => {
@@ -1765,7 +1435,6 @@
             lightboxModal.classList.remove('active');
 
         });
-
 
 
         /* CLICK OUTSIDE IMAGE */
@@ -1781,17 +1450,13 @@
         });
 
 
-
         /* ESCAPE KEY */
 
         window.addEventListener('keydown', (e) => {
 
             if (
-
                 e.key === 'Escape' &&
-
                 lightboxModal.classList.contains('active')
-
             ) {
 
                 lightboxModal.classList.remove('active');
@@ -1800,9 +1465,7 @@
 
         });
 
-
     </script>
-
 
 </body>
 
